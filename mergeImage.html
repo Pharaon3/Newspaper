@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sms.smartmessagingservices.net/Account/Login -->
+<html lang="en">
+<head>
+<script>
+    window.onload = function () {
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
+      var imageObj1 = new Image();
+      var imageObj2 = new Image();
+      imageObj1.src = "1.png"
+      imageObj1.onload = function() {
+         context.drawImage(imageObj1, 0, 0, 328, 526);
+         imageObj2.src = "2.png";
+         imageObj2.onload = function() {
+            context.drawImage(imageObj2, 15, 85, 300, 300);
+            context.fillText('Hi', 10, 90);
+            var img = canvas.toDataURL("image/png");
+            document.write('<img src="' + img + '" width="328" height="526"/>');
+         }
+      };
+   }
+</script>
+</head>
+<body>
+   <canvas id="canvas" width="600" height="600" style="border: solid 1px gray; margin: 100px;padding: 30px;"></canvas>
+</body>
+</html>
