@@ -1472,6 +1472,14 @@
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <link rel="stylesheet" id="elementor-post-50298-css" href="./Original Site_files/main.css" media="all">
+<link rel="preload" href="BentonSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+    .your-style {
+        font-family: 'BentonSans';
+        font-weight: normal;
+        font-style: normal;
+    }
+</style>
 </head>
 
 <body
@@ -1483,7 +1491,9 @@
         var imageObj1 = new Image();
         imageObj1.src = "./photos/1.png"
         var context = canvas.getContext("2d");
-        context.font = "20px Georgia";
+        context.font = "32px Myriad";
+        // context.color = "white";
+        context.fillStyle = "white";
         imageObj1.onload = function() {
             context.drawImage(imageObj1, 0, 0, 448, 600);
             var imageObj2 = new Image();
@@ -1492,20 +1502,44 @@
                 context.drawImage(imageObj2, 0, 0, 448, 600);
                 var ele = document.getElementById("header-input");
                 var ele1 = document.getElementById("subheader-input");
-                if (ele.textContent) {
-                    // for firefox
-                    context.fillText(ele.value, 100, 90);
-                    context.fillText(ele1.value, 10, 110);
-                } else {
-                    // for other browser
-                    context.fillText(ele.value, 100, 50);
-                    context.fillText(ele1.value, 10, 110);
-                }
+                context.shadowColor = "rgba(0, 0, 0, 0.5)";
+                context.shadowOffsetX = 4;
+                context.shadowOffsetY = 4;
+                context.shadowBlur = 5;
+                wrapText(context, ele.value.toUpperCase(), 50, 400, 400, 42, 'Myriad')
+                // context.fillText(ele.value.toUpperCase(), 50, 450);
+                context.fillText(ele1.value, 10, 110);
                 var img = document.getElementById("exportedImage");
                 img.src = canvas.toDataURL('image/png');
               console.log('context: ', context)
           }
       }
+    }
+    function wrapText(context, text, x, y, maxWidth, fontSize, fontFace){
+      var firstY=y;
+      var words = text.split(' ');
+      var line = '';
+      var lineHeight=fontSize*1.286; // a good approx for 10-18px sizes
+
+      context.font=fontSize+"px "+fontFace;
+      context.textBaseline='top';
+
+      for(var n = 0; n < words.length; n++) {
+        var testLine = line + words[n] + ' ';
+        var metrics = context.measureText(testLine);
+        var testWidth = metrics.width;
+        if(testWidth > maxWidth) {
+          context.fillText(line, x, y);
+          if(n<words.length-1){
+              line = words[n] + ' ';
+              y += lineHeight;
+          }
+        }
+        else {
+          line = testLine;
+        }
+      }
+      context.fillText(line, x, y);
     }
     function exportImage1() {
       // var canvas = document.getElementById("canvas");
@@ -1613,7 +1647,7 @@
                                                 <div class="tool-wrapper">
                                                     <label for="header-input">Escribí tu encabezado</label>
                                                     <input type="text" id="header-input" name="encabezado"
-                                                        maxlength="20">
+                                                        maxlength="40">
                                                     <label for="subheader-input">Ponele un copete</label>
                                                     <input type="text" id="subheader-input" name="bajada"
                                                         maxlength="90">
