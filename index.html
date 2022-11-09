@@ -1581,6 +1581,12 @@
                                                         imagen</label>
                                                         <button id="file-input" type="button" data-toggle="modal" data-target="#myModal">Open Large Modal</button>
                                                     <button id="download-button" onclick="candown('canvasB', 'jpg')">Descargátela</button>
+                                                    <!-- <button id="twitter">Twitter</button>
+                                                    <button id="fb">FB Share</button> -->
+                                                    <div style="margin: auto;">
+                                                        <img src='./twitter.png' onclick="twitterShare()" style="width: 50px; height: 50px; cursor: pointer; margin-right: 30px;">
+                                                        <img src='./facebook.png' onclick="facebookShare()" style="width: 50px; height: 50px; cursor: pointer; margin-left: 30px;">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1726,7 +1732,7 @@
             imageObj1.onload = function() {
                 context.drawImage(imageObj1, 0, 0, 500, 609);
                 var imageObj2 = new Image();
-                imageObj2.src = "./frame.png"
+                imageObj2.src = "./frame1withAD.png"
                 imageObj2.onload = function() {
                     context.drawImage(imageObj2, 0, 0, 500, 609);
                     var ele = document.getElementById("header-input");
@@ -1735,8 +1741,27 @@
                     context.shadowOffsetX = 2;
                     context.shadowOffsetY = 2;
                     context.shadowBlur = 2;
-                    wrapText(context, ele.value.toUpperCase(), 50, 400, 400, 64*0.6, 'Myriad')
-                    wrapText(context, ele1.value, 50, 300, 400, 28*0.6, 'Myriad')
+                    wrapText(context, ele.value.toUpperCase(), 50, 400, 400, 64*0.6, 'Myriad');
+                    wrapText(context, ele1.value, 50, 300, 400, 28*0.6, 'Myriad');
+                    // const event = new Date();
+                    // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    // console.log(event.toLocaleDateString('es-ES', options));
+                    const weekday = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+                    const monthName = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+                    const d = new Date();
+                    let day = weekday[d.getDay()];
+                    let date = d.getDate();
+                    let month = monthName[d.getMonth()];
+                    let year = d.getFullYear();
+                    console.log(day, date, month, year);
+                    context.font = "8px Myriad";
+                    context.fillStyle = "blue";
+                    context.shadowOffsetX = 1;
+                    context.shadowOffsetY = 1;
+                    context.shadowBlur = 1;
+                    context.fillText(day.toUpperCase(), 50, 160);
+                    context.fillText(date + ' DE ' + month.toUpperCase(), 30, 170);
+                    context.fillText('DE ' + year, 50, 180);
                     // context.fillText(ele.value.toUpperCase(), 50, 450);
                     // context.fillText(ele1.value, 10, 110);
                     var img = document.getElementById("exportedImage");
@@ -1759,7 +1784,7 @@
             imageObj1.onload = function() {
                 context.drawImage(imageObj1, 0, 0, 1362, 1659);
                 var imageObj2 = new Image();
-                imageObj2.src = "./frame.png"
+                imageObj2.src = "./frame1withAD.png"
                 imageObj2.onload = function() {
                     context.drawImage(imageObj2, 0, 0, 1362, 1659);
                     var ele = document.getElementById("header-input");
@@ -1770,6 +1795,22 @@
                     context.shadowBlur = 2*rate;
                     wrapText(context, ele.value.toUpperCase(), 50*rate, 400*rate, 400*rate, 64*0.6*rate, 'Myriad')
                     wrapText(context, ele1.value, 50*rate, 300*rate, 400*rate, 28*0.6*rate, 'Myriad')
+                    const weekday = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+                    const monthName = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+                    const d = new Date();
+                    let day = weekday[d.getDay()];
+                    let date = d.getDate();
+                    let month = monthName[d.getMonth()];
+                    let year = d.getFullYear();
+                    console.log(day, date, month, year);
+                    context.font = "21px Myriad";
+                    context.fillStyle = "blue";
+                    context.shadowOffsetX = 1*rate;
+                    context.shadowOffsetY = 1*rate;
+                    context.shadowBlur = 1*rate;
+                    context.fillText(day.toUpperCase(), 50*rate, 160*rate);
+                    context.fillText(date + ' DE ' + month.toUpperCase(), 30*rate, 170*rate);
+                    context.fillText('DE ' + year, 50*rate, 180*rate);
                 }
             }
         }
@@ -1816,8 +1857,62 @@
           // anchor.innerHTML = "Download";
           // document.body.appendChild(anchor);
         }
-  </script>
+        // share
+        // Facebook Sharer Api:-  "https://www.facebook.com/sharer/sharer.php?u="; 
 
+        function shareOnFacebook(){
+            const navUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + 'https://github.com/knoldus/angular-facebook-twitter.git';
+            window.open(navUrl , '_blank');
+        }
+        const fb = document.getElementById('fb');
+        fb.addEventListener('click', shareonFacebook);
+        function shareOnTwitter() {
+          const navUrl =
+            'https://twitter.com/intent/tweet?text=' +
+            'https://github.com/knoldus/angular-facebook-twitter.git';
+          window.open(navUrl, '_blank');
+        }
+        const tweet = document.getElementById('twitter');
+        tweet.addEventListener('click', shareOnTwitter);
+
+        // Another way
+        // var twitterShare = document.querySelector('[data-js="twitter-share"]');
+
+        function twitterShare() {
+          // e.preventDefault();
+          console.log('twitterShare');
+          var twitterWindow = window.open('https://twitter.com/share?url=' + document.getElementById('canvasB').toDataURL("image/png") , 'twitter-popup', 'height=350,width=600');
+          if(twitterWindow.focus) { twitterWindow.focus(); }
+            return false;
+          }
+
+        // var facebookShare = document.querySelector('[data-js="facebook-share"]');
+
+         function facebookShare() {
+          // e.preventDefault();
+          console.log('facebookShare');
+          var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.getElementById('canvasB').toDataURL("image/png") , 'facebook-popup', 'height=350,width=600');
+          if(facebookWindow.focus) { facebookWindow.focus(); }
+            return false;
+        }
+  </script>
+<style type="text/css">
+    
+.twitter-share, .facebook-share {
+  background: #fff;
+  color: rgb(87, 207, 244);
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em 2em;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  
+  &:hover {
+    position: relative;
+    top: -1px;
+  }
+}
+</style>
   <!-- IAMGE CREATION SCRIPT END -->
 
 </body>
