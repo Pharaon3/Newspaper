@@ -3,12 +3,12 @@
 <html lang="en">
 <head>
 <script>
-    window.onload = function () {
+    function func() {
       var canvas = document.getElementById("canvas");
       var context = canvas.getContext("2d");
       var imageObj1 = new Image();
       var imageObj2 = new Image();
-      imageObj1.src = "1.png"
+      imageObj1.src = "./1.png"
       imageObj1.onload = function() {
          context.drawImage(imageObj1, 0, 0, 328, 526);
          imageObj2.src = "2.png";
@@ -24,5 +24,6 @@
 </head>
 <body>
    <canvas id="canvas" width="600" height="600" style="border: solid 1px gray; margin: 100px;padding: 30px;"></canvas>
+   <button onclick="func()">but</button>
 </body>
 </html>

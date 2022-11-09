@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'Formata';
+    src: url('Formata-Light.eot');
+    src: url('Formata-Light.eot?#iefix') format('embedded-opentype'),
+        url('Formata-Light.woff2') format('woff2'),
+        url('Formata-Light.woff') format('woff'),
+        url('Formata-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BentonSans';
+    src: url('BentonSans-Bold.eot');
+    src: url('BentonSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('BentonSans-Bold.woff2') format('woff2'),
+        url('BentonSans-Bold.woff') format('woff'),
+        url('BentonSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BentonSans';
+    src: url('BentonSans-Regular.eot');
+    src: url('BentonSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('BentonSans-Regular.woff2') format('woff2'),
+        url('BentonSans-Regular.woff') format('woff'),
+        url('BentonSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Formata';
+    src: url('Formata-Regular.eot');
+    src: url('Formata-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Formata-Regular.woff2') format('woff2'),
+        url('Formata-Regular.woff') format('woff'),
+        url('Formata-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Knockout';
+    src: url('Knockout-HTF27-JuniorBantamwt.eot');
+    src: url('Knockout-HTF27-JuniorBantamwt.eot?#iefix') format('embedded-opentype'),
+        url('Knockout-HTF27-JuniorBantamwt.woff2') format('woff2'),
+        url('Knockout-HTF27-JuniorBantamwt.woff') format('woff'),
+        url('Knockout-HTF27-JuniorBantamwt.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Formata';
+    src: url('Formata-MediumCondensed.eot');
+    src: url('Formata-MediumCondensed.eot?#iefix') format('embedded-opentype'),
+        url('Formata-MediumCondensed.woff2') format('woff2'),
+        url('Formata-MediumCondensed.woff') format('woff'),
+        url('Formata-MediumCondensed.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Formata';
+    src: url('Formata-Medium.eot');
+    src: url('Formata-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Formata-Medium.woff2') format('woff2'),
+        url('Formata-Medium.woff') format('woff'),
+        url('Formata-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Knockout';
+    src: url('Knockout-HTF27-JuniorBantamwt_1.eot');
+    src: url('Knockout-HTF27-JuniorBantamwt_1.eot?#iefix') format('embedded-opentype'),
+        url('Knockout-HTF27-JuniorBantamwt_1.woff2') format('woff2'),
+        url('Knockout-HTF27-JuniorBantamwt_1.woff') format('woff'),
+        url('Knockout-HTF27-JuniorBantamwt_1.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+

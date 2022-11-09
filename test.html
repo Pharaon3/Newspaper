@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <title>Ovación | Creador de portadas – EL PAIS</title>
     <meta name="robots" content="max-image-preview:large">
@@ -458,7 +458,7 @@
         media="all">
     <link rel="stylesheet" id="nbcpf-countryFlag-style-css" href="./Original Site_files/countrySelect.min.css"
         media="all">
-    <link rel="stylesheet" id="twentynineteen-style-css" href="./Original Site_files/style.css" media="all">
+        <link rel="stylesheet" id="twentynineteen-style-css" href="./Original Site_files/style.css" media="all">
     <link rel="stylesheet" id="twentynineteen-print-style-css" href="./Original Site_files/print.css" media="print">
     <link rel="stylesheet" id="elementor-icons-css" href="./Original Site_files/elementor-icons.min.css" media="all">
     <link rel="stylesheet" id="elementor-frontend-legacy-css" href="./Original Site_files/frontend-legacy.min.css"
@@ -1323,7 +1323,6 @@
     </style>
     <link rel="stylesheet" id="elementor-post-1086-css" href="./Original Site_files/post-1086.css" media="all">
     <link rel="stylesheet" id="elementor-pro-css" href="./Original Site_files/frontend.min(1).css" media="all">
-    <link rel="stylesheet" id="elementor-post-50298-css" href="./Original Site_files/post-50298.css" media="all">
     <link rel="stylesheet" id="eael-general-css" href="./Original Site_files/general.min.css" media="all">
     <link rel="stylesheet" id="happy-icons-css" href="./Original Site_files/style.min(1).css" media="all">
     <link rel="stylesheet" id="font-awesome-css" href="./Original Site_files/font-awesome.min.css" media="all">
@@ -1472,7 +1471,7 @@
         }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
+<link rel="stylesheet" id="elementor-post-50298-css" href="./Original Site_files/main.css" media="all">
 </head>
 
 <body
@@ -1482,31 +1481,41 @@
   <script>
     function exportImage() {
         var imageObj1 = new Image();
+        imageObj1.src = "./photos/1.png"
         var context = canvas.getContext("2d");
         context.font = "20px Georgia";
-        var ele = document.getElementById("header-input");
-        var ele1 = document.getElementById("subheader-input");
-        if (ele.textContent) {
-            // for firefox
-            context.fillText(ele.value, 100, 90);
-            context.fillText(ele1.value, 10, 110);
-        } else {
-            // for other browser
-            context.fillText(ele.value, 100, 50);
-            context.fillText(ele1.value, 10, 110);
-        }
-        var img = document.getElementById("exportedImage");
-        img.src = canvas.toDataURL('image/png');
+        imageObj1.onload = function() {
+            context.drawImage(imageObj1, 0, 0, 448, 600);
+            var imageObj2 = new Image();
+            imageObj2.src = "./frame.png"
+            imageObj2.onload = function() {
+                context.drawImage(imageObj2, 0, 0, 448, 600);
+                var ele = document.getElementById("header-input");
+                var ele1 = document.getElementById("subheader-input");
+                if (ele.textContent) {
+                    // for firefox
+                    context.fillText(ele.value, 100, 90);
+                    context.fillText(ele1.value, 10, 110);
+                } else {
+                    // for other browser
+                    context.fillText(ele.value, 100, 50);
+                    context.fillText(ele1.value, 10, 110);
+                }
+                var img = document.getElementById("exportedImage");
+                img.src = canvas.toDataURL('image/png');
+              console.log('context: ', context)
+          }
+      }
     }
     function exportImage1() {
-      var canvas = document.getElementById("canvas");
+      // var canvas = document.getElementById("canvas");
       var context = canvas.getContext("2d");
       var imageObj1 = new Image();
       var imageObj2 = new Image();
-      imageObj1.src = "1.png"
+      imageObj1.src = "./1.png"
       imageObj1.onload = function() {
          context.drawImage(imageObj1, 0, 0, 328, 526);
-         imageObj2.src = "2.png";
+         imageObj2.src = "./2.png";
          imageObj2.onload = function() {
             context.drawImage(imageObj2, 15, 85, 300, 300);
             context.fillText('Hi', 10, 90);
@@ -1517,6 +1526,7 @@
       console.log('context: ', context)
    }
   </script>
+
   <!-- IAMGE CREATION SCRIPT END -->
 
     <div data-elementor-type="wp-page" data-elementor-id="50298" class="elementor elementor-50298">
@@ -1609,9 +1619,9 @@
                                                         maxlength="90">
                                                     <label id="file-label" for="file-input" role="button">Subí tu
                                                         imagen</label>
-                                                    <button type="file" id="file-input" name="imagen"
-                                                        accept="image/png, image/jpeg" onclick="exportImage();">
-                                                    <button id="download-button" onclick="exportImage1();">Descargátela</button>
+                                                    <input type="file" id="file-input" name="imagen"
+                                                        accept="image/png, image/jpeg" >
+                                                    <button id="download-button" onclick="exportImage();">Descargátela</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -1625,9 +1635,10 @@
                                 <div class="elementor-column-wrap elementor-element-populated">
                                     <div class="elementor-widget-wrap">
                                         <!-- IMAGE CREATION BEGINE -->
-                                          <canvas id="canvas" width="200" height="200" style="border: solid 1px gray;"></canvas>
+                                          <!-- <canvas id="canvas" width="600" height="600" style="border: solid 1px gray; margin: 100px;padding: 30px;"></canvas>
                                           <br />
-                                          <img id="exportedImage" style="border-width: 1px; border-style: solid; border-color: black;" width="200" height="200" src="#" />
+                                          <img id="exportedImage" style="border-width: 1px; border-style: solid; border-color: black;" width="200" height="200" src="#" /> -->
+                                          <canvas id="canvas" width="448" height="600" style="border: solid 1px gray; padding: 00px;"></canvas>
                                         <!-- IMAGE CREATION END -->
                                     </div>
                                 </div>

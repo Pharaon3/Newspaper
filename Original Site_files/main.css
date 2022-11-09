@@ -1,0 +1,123 @@
+.elementor-50298 .elementor-element.elementor-element-ba55a8d:not(.elementor-motion-effects-element-type-background), .elementor-50298 .elementor-element.elementor-element-ba55a8d > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-color:transparent;background-image:linear-gradient(210deg, #00AAAA 0%, #48A154 63%);}.elementor-50298 .elementor-element.elementor-element-ba55a8d{transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin-top:0rem;margin-bottom:0rem;padding:1rem 1rem 1rem 1rem;}.elementor-50298 .elementor-element.elementor-element-ba55a8d > .elementor-background-overlay{transition:background 0.3s, border-radius 0.3s, opacity 0.3s;}.elementor-50298 .elementor-element.elementor-element-2bf90b6 > .elementor-element-populated > .elementor-widget-wrap{padding:0px 0px 0px 0px;}.elementor-50298 .elementor-element.elementor-element-cd12cd0{text-align:left;}.elementor-50298 .elementor-element.elementor-element-cd12cd0 img{width:200px;}.elementor-50298 .elementor-element.elementor-element-157fd90 > .elementor-element-populated > .elementor-widget-wrap{padding:0px 0px 0px 0px;}.elementor-50298 .elementor-element.elementor-element-96c127e > .elementor-container{max-width:900px;}.elementor-50298 .elementor-element.elementor-element-96c127e{transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin-top:0rem;margin-bottom:0rem;padding:2rem 4rem 0rem 4rem;}.elementor-50298 .elementor-element.elementor-element-96c127e > .elementor-background-overlay{transition:background 0.3s, border-radius 0.3s, opacity 0.3s;}.elementor-50298 .elementor-element.elementor-element-7ff595a > .elementor-element-populated > .elementor-widget-wrap{padding:0px 0px 0px 0px;}.elementor-50298 .elementor-element.elementor-element-406f475{text-align:left;}.elementor-50298 .elementor-element.elementor-element-406f475 .elementor-heading-title{color:#172A3A;font-family:"Titillium Web";}.elementor-50298 .elementor-element.elementor-element-6b90570 .elementor-heading-title{color:#405465;font-size:20px;font-weight:normal;line-height:1.2em;}.elementor-50298 .elementor-element.elementor-element-6b90570 > .elementor-widget-container{padding:0px 24px 0px 0px;}.elementor-50298 .elementor-element.elementor-element-bdaf5c5 > .elementor-widget-container{margin:1rem 4rem 0rem 0rem;}.elementor-50298 .elementor-element.elementor-element-269df5c > .elementor-element-populated > .elementor-widget-wrap{padding:0px 0px 0px 0px;}.elementor-50298 .elementor-element.elementor-element-1bc4594 > .elementor-widget-container{padding:0px 0px 0px 0px;}.elementor-50298 .elementor-element.elementor-element-266120d > .elementor-container{max-width:880px;}.elementor-50298 .elementor-element.elementor-element-266120d{transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin-top:0rem;margin-bottom:0rem;padding:2rem 4rem 4rem 4rem;}.elementor-50298 .elementor-element.elementor-element-266120d > .elementor-background-overlay{transition:background 0.3s, border-radius 0.3s, opacity 0.3s;}.elementor-50298 .elementor-element.elementor-element-e61c191 > .elementor-element-populated > .elementor-widget-wrap{padding:0px 0px 0px 0px;}.elementor-50298 .elementor-element.elementor-element-9b8e555 > .elementor-element-populated > .elementor-widget-wrap{padding:0px 0px 0px 0px;}body.elementor-page-50298:not(.elementor-motion-effects-element-type-background), body.elementor-page-50298 > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-color:transparent;background-image:linear-gradient(210deg, #EDF2F4 50%, #E7EFF4 50%);}body.elementor-page-50298{padding:0px 0px 0px 0px;}@media(max-width:1024px){.elementor-50298 .elementor-element.elementor-element-406f475 .elementor-heading-title{font-size:48px;}.elementor-50298 .elementor-element.elementor-element-6b90570 > .elementor-widget-container{padding:0px 0px 0px 0px;}.elementor-50298 .elementor-element.elementor-element-bdaf5c5 > .elementor-widget-container{margin:1rem 0rem 0rem 0rem;}}@media(max-width:767px){.elementor-50298 .elementor-element.elementor-element-ba55a8d{padding:10px 10px 10px 10px;}.elementor-50298 .elementor-element.elementor-element-96c127e{margin-top:2rem;margin-bottom:2rem;padding:16px 16px 16px 16px;}.elementor-50298 .elementor-element.elementor-element-269df5c > .elementor-element-populated{margin:2rem 0rem 0rem 0rem;--e-column-margin-right:0rem;--e-column-margin-left:0rem;}.elementor-50298 .elementor-element.elementor-element-1bc4594 > .elementor-widget-container{margin:0rem 0rem 0rem 0rem;}.elementor-50298 .elementor-element.elementor-element-266120d{padding:10px 10px 10px 10px;}}@media(min-width:768px){.elementor-50298 .elementor-element.elementor-element-2bf90b6{width:59.951%;}.elementor-50298 .elementor-element.elementor-element-157fd90{width:39.382%;}}/* Start custom CSS */.elementor-heading-title.elementor-size-default::before {
+    display: none;
+}
+
+* {
+    font-family: "Titillium Web", Helvetica, Arial;
+}
+
+#date-displayer {
+    font-weight: bold;
+    font-size: 20px;
+    color: #09bc8a;
+}
+
+label {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+label[for="header-input"],
+label[for="subheader-input"] {
+    margin-left: 40px;
+    position: relative;
+}
+
+.tool-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+    padding: 40px 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 16px 16px -4px rgba(0,0,10,.1);
+}
+
+#header-input,
+#subheader-input {
+    width: 100%;
+    padding: 6px 20px;
+    height: 4ch;
+    font-size: 16px;
+    color: rgb(20,20,20);
+    font-family: "Titillium Web", Helvetica, Arial;
+    margin-bottom: 24px;
+    border: 1px dashed grey;
+}
+
+#download-button,
+#file-label {
+    background-color: #09bc8a;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    padding: 6px 20px;
+    font-weight: bold;
+    border-radius: 24px;
+    font-size: 20px;
+    font-family: "Titillium Web", Helvetica, Arial;
+    line-height: 1.5;
+    width: 100%;
+    margin-left: 40px;
+    position: relative;
+    transition: background-color 300ms;
+}
+
+#download-button:hover,
+#file-label:hover {
+    background-color: #172a3a;
+}
+
+label[for="header-input"]:before,
+label[for="subheader-input"]:before, #download-button:before,
+#file-label:before {
+    display: inline-block;
+    position: absolute;
+    left: -40px;
+    font-size: 20px;
+    padding: 0 10px;
+    border-radius: 50%;
+    background-color: #172a3a;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+label[for="header-input"]:before {
+    content: "1";
+}
+
+label[for="subheader-input"]:before {
+    content: "2";
+}
+
+#file-label:before {
+    content: "3";
+}
+
+#download-button:before {
+    content: "4";
+}
+
+#file-input {
+    display: none;
+}
+
+
+#structure,
+#default-img,
+#user-img {
+    display: none;
+}
+
+#image-output {
+    width: 100%;
+    height: 0;
+    padding-bottom: 121%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 1px dashed #09bc8a;
+}/* End custom CSS */
