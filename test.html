@@ -1484,13 +1484,14 @@
 
 <body
     class="page-template page-template-elementor_canvas page page-id-50298 wp-embed-responsive singular image-filters-enabled elementor-default elementor-template-canvas elementor-kit-1086 elementor-page elementor-page-50298 e--ua-blink e--ua-chrome e--ua-webkit"
-    data-elementor-device-mode="desktop">
+    data-elementor-device-mode="desktop" onload="exportImage()">
   <!-- IMAGE CREATION SCRIPT BEGINE -->
   <script>
     function exportImage() {
         var imageObj1 = new Image();
         imageObj1.src = "./photos/1.png"
         var context = canvas.getContext("2d");
+        context.shadowColor = "rgba(0, 0, 0, 0)";
         context.font = "32px Myriad";
         // context.color = "white";
         context.fillStyle = "white";
@@ -1502,24 +1503,25 @@
                 context.drawImage(imageObj2, 0, 0, 448, 600);
                 var ele = document.getElementById("header-input");
                 var ele1 = document.getElementById("subheader-input");
-                context.shadowColor = "rgba(0, 0, 0, 0.5)";
-                context.shadowOffsetX = 4;
-                context.shadowOffsetY = 4;
-                context.shadowBlur = 5;
-                wrapText(context, ele.value.toUpperCase(), 50, 400, 400, 42, 'Myriad')
+                context.shadowColor = "rgba(0, 0, 0, 0.9)";
+                context.shadowOffsetX = 2;
+                context.shadowOffsetY = 2;
+                context.shadowBlur = 2;
+                wrapText(context, ele.value.toUpperCase(), 50, 400, 380, 64*0.6, 'Myriad')
+                wrapText(context, ele1.value, 50, 300, 380, 28*0.6, 'Myriad')
                 // context.fillText(ele.value.toUpperCase(), 50, 450);
-                context.fillText(ele1.value, 10, 110);
+                // context.fillText(ele1.value, 10, 110);
                 var img = document.getElementById("exportedImage");
                 img.src = canvas.toDataURL('image/png');
-              console.log('context: ', context)
-          }
-      }
+                console.log('context: ', context)
+            }
+        }
     }
     function wrapText(context, text, x, y, maxWidth, fontSize, fontFace){
       var firstY=y;
       var words = text.split(' ');
       var line = '';
-      var lineHeight=fontSize*1.286; // a good approx for 10-18px sizes
+      var lineHeight=fontSize*1.2; // a good approx for 10-18px sizes
 
       context.font=fontSize+"px "+fontFace;
       context.textBaseline='top';
@@ -1646,11 +1648,11 @@
                                             <div class="elementor-widget-container">
                                                 <div class="tool-wrapper">
                                                     <label for="header-input">Escribí tu encabezado</label>
-                                                    <input type="text" id="header-input" name="encabezado"
-                                                        maxlength="40">
+                                                    <input type="text" id="header-input" name="encabezado" oninput="exportImage()" 
+                                                        maxlength="20">
                                                     <label for="subheader-input">Ponele un copete</label>
                                                     <input type="text" id="subheader-input" name="bajada"
-                                                        maxlength="90">
+                                                        maxlength="90" oninput ="exportImage()">
                                                     <label id="file-label" for="file-input" role="button">Subí tu
                                                         imagen</label>
                                                     <input type="file" id="file-input" name="imagen"
