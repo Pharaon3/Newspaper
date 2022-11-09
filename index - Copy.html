@@ -1488,6 +1488,109 @@
 <body
     class="page-template page-template-elementor_canvas page page-id-50298 wp-embed-responsive singular image-filters-enabled elementor-default elementor-template-canvas elementor-kit-1086 elementor-page elementor-page-50298 e--ua-blink e--ua-chrome e--ua-webkit"
     data-elementor-device-mode="desktop" onload="exportImage()">
+  <!-- IMAGE CREATION SCRIPT BEGINE -->
+  <script>
+        var imageNo = 1;
+        function exportImage() {
+            var imageObj1 = new Image();
+            imageObj1.src = "./photos/"+ imageNo + ".jpg"
+            var context = canvas.getContext("2d");
+            context.shadowColor = "rgba(0, 0, 0, 0)";
+            context.font = "32px Myriad";
+            // context.color = "white";
+            context.fillStyle = "white";
+            imageObj1.onload = function() {
+                context.drawImage(imageObj1, 0, 0, 500, 609);
+                var imageObj2 = new Image();
+                imageObj2.src = "./frame.png"
+                imageObj2.onload = function() {
+                    context.drawImage(imageObj2, 0, 0, 500, 609);
+                    var ele = document.getElementById("header-input");
+                    var ele1 = document.getElementById("subheader-input");
+                    context.shadowColor = "rgba(0, 0, 0, 0.9)";
+                    context.shadowOffsetX = 2;
+                    context.shadowOffsetY = 2;
+                    context.shadowBlur = 2;
+                    wrapText(context, ele.value.toUpperCase(), 50, 400, 380, 64*0.6, 'Myriad')
+                    wrapText(context, ele1.value, 50, 300, 380, 28*0.6, 'Myriad')
+                    // context.fillText(ele.value.toUpperCase(), 50, 450);
+                    // context.fillText(ele1.value, 10, 110);
+                    var img = document.getElementById("exportedImage");
+                    img.src = canvas.toDataURL('image/png');
+                    console.log('canvas: ', canvas)
+                }
+            }
+        }
+        function wrapText(context, text, x, y, maxWidth, fontSize, fontFace){
+          var firstY=y;
+          var words = text.split(' ');
+          var line = '';
+          var lineHeight=fontSize*1.2; // a good approx for 10-18px sizes
+
+          context.font=fontSize+"px "+fontFace;
+          context.textBaseline='top';
+
+          for(var n = 0; n < words.length; n++) {
+            var testLine = line + words[n] + ' ';
+            var metrics = context.measureText(testLine);
+            var testWidth = metrics.width;
+            if(testWidth > maxWidth) {
+              context.fillText(line, x, y);
+              if(n<words.length-1){
+                  line = words[n] + ' ';
+                  y += lineHeight;
+              }
+            }
+            else {
+              line = testLine;
+            }
+          }
+          context.fillText(line, x, y);
+        }
+        function exportImage1() {
+          // var canvas = document.getElementById("canvas");
+          var context = canvas.getContext("2d");
+          var imageObj1 = new Image();
+          var imageObj2 = new Image();
+          imageObj1.src = "./1.png"
+          imageObj1.onload = function() {
+             context.drawImage(imageObj1, 0, 0, 328, 526);
+             imageObj2.src = "./2.png";
+             imageObj2.onload = function() {
+                context.drawImage(imageObj2, 15, 85, 300, 300);
+                context.fillText('Hi', 10, 90);
+                var img = document.getElementById("exportedImage");
+                img.src = canvas.toDataURL('image/png');
+             }
+          };
+          console.log('context: ', context)
+       }
+       var download = function(){
+          var link = document.createElement('a');
+          link.download = 'filename.png';
+          link.href = document.getElementById('canvas').toDataURL()
+          link.click();
+        }
+        function candown (target, type) {
+          // (B1) GET CANVAS
+          let canvas = document.getElementById(target);
+         
+           // (B2) CREATE LINK
+          let anchor = document.createElement("a");
+          anchor.download = "download." + type;
+          anchor.href = canvas.toDataURL("image/" + type);
+         
+          // (B3) "FORCE DOWNLOAD"
+          anchor.click();
+          anchor.remove();
+         
+          // (B4) SAFER ALTERNATIVE - LET USER CLICK ON LINK
+          // anchor.innerHTML = "Download";
+          // document.body.appendChild(anchor);
+        }
+  </script>
+
+  <!-- IAMGE CREATION SCRIPT END -->
 
     <div data-elementor-type="wp-page" data-elementor-id="50298" class="elementor elementor-50298">
         <div class="elementor-inner">
@@ -1573,14 +1676,14 @@
                                                 <div class="tool-wrapper">
                                                     <label for="header-input">Escribí tu encabezado</label>
                                                     <input type="text" id="header-input" name="encabezado" oninput="exportImage()" 
-                                                        maxlength="25">
+                                                        maxlength="20">
                                                     <label for="subheader-input">Ponele un copete</label>
                                                     <input type="text" id="subheader-input" name="bajada"
                                                         maxlength="90" oninput ="exportImage()">
                                                     <label id="file-label" for="file-input" role="button">Subí tu
                                                         imagen</label>
                                                         <button id="file-input" type="button" data-toggle="modal" data-target="#myModal">Open Large Modal</button>
-                                                    <button id="download-button" onclick="candown('canvasB', 'jpg')">Descargátela</button>
+                                                    <button id="download-button" onclick="candown('canvas', 'jpg')">Descargátela</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -1598,7 +1701,6 @@
                                           <br />
                                           <img id="exportedImage" style="border-width: 1px; border-style: solid; border-color: black;" width="200" height="200" src="#" /> -->
                                           <canvas id="canvas" width="500" height="609" style="border: solid 1px gray; padding: auto;"></canvas>
-                                          <canvas id="canvasB" width="1362" height="1659" style="position: absolute; top: -10000px; left: 10000px;"></canvas>
                                         <!-- IMAGE CREATION END -->
                                     </div>
                                 </div>
@@ -1652,7 +1754,7 @@
                                 <img src="./photos/21.jpg" alt="21" style="width:100%; margin: 10px;" onclick="selectPhoto(this);">
                                 <img src="./photos/22.jpg" alt="22" style="width:100%; margin: 10px;" onclick="selectPhoto(this);">
                                 <img src="./photos/23.jpg" alt="23" style="width:100%; margin: 10px;" onclick="selectPhoto(this);">
-                                <img src="./photos/24.jpg" alt="24" style="width:100%; margin: 10px;" onclick="selectPhoto(this);">
+                                <img src="./photos/1.jpg" alt="1" style="width:100%; margin: 10px;" onclick="selectPhoto(this);">
                               </div>
                             </div>
 
@@ -1711,114 +1813,6 @@
     </div>
     <link rel="stylesheet" id="e-animations-css" href="./Original Site_files/animations.min.css" media="all">
 
-  <!-- IMAGE CREATION SCRIPT BEGINE -->
-  <script>
-        var imageNo = 1;
-        function exportImage() {
-            var canvas = document.getElementById('canvas');
-            var imageObj1 = new Image();
-            imageObj1.src = "./photos/"+ imageNo + ".jpg"
-            var context = canvas.getContext("2d");
-            context.shadowColor = "rgba(0, 0, 0, 0)";
-            context.font = "32px Myriad";
-            // context.color = "white";
-            context.fillStyle = "white";
-            imageObj1.onload = function() {
-                context.drawImage(imageObj1, 0, 0, 500, 609);
-                var imageObj2 = new Image();
-                imageObj2.src = "./frame.png"
-                imageObj2.onload = function() {
-                    context.drawImage(imageObj2, 0, 0, 500, 609);
-                    var ele = document.getElementById("header-input");
-                    var ele1 = document.getElementById("subheader-input");
-                    context.shadowColor = "rgba(0, 0, 0, 0.9)";
-                    context.shadowOffsetX = 2;
-                    context.shadowOffsetY = 2;
-                    context.shadowBlur = 2;
-                    wrapText(context, ele.value.toUpperCase(), 50, 400, 400, 64*0.6, 'Myriad')
-                    wrapText(context, ele1.value, 50, 300, 400, 28*0.6, 'Myriad')
-                    // context.fillText(ele.value.toUpperCase(), 50, 450);
-                    // context.fillText(ele1.value, 10, 110);
-                    var img = document.getElementById("exportedImage");
-                    img.src = canvas.toDataURL('image/png');
-                    console.log('canvas: ', canvas)
-                }
-            }
-            exportImageB();
-        }
-        function exportImageB() {
-            var canvasB = document.getElementById('canvasB');
-            var rate = 2.724;
-            var imageObj1 = new Image();
-            imageObj1.src = "./photos/"+ imageNo + ".jpg"
-            var context = canvasB.getContext("2d");
-            context.shadowColor = "rgba(0, 0, 0, 0)";
-            context.font = "32px Myriad";
-            // context.color = "white";
-            context.fillStyle = "white";
-            imageObj1.onload = function() {
-                context.drawImage(imageObj1, 0, 0, 1362, 1659);
-                var imageObj2 = new Image();
-                imageObj2.src = "./frame.png"
-                imageObj2.onload = function() {
-                    context.drawImage(imageObj2, 0, 0, 1362, 1659);
-                    var ele = document.getElementById("header-input");
-                    var ele1 = document.getElementById("subheader-input");
-                    context.shadowColor = "rgba(0, 0, 0, 0.9)";
-                    context.shadowOffsetX = 2*rate;
-                    context.shadowOffsetY = 2*rate;
-                    context.shadowBlur = 2*rate;
-                    wrapText(context, ele.value.toUpperCase(), 50*rate, 400*rate, 400*rate, 64*0.6*rate, 'Myriad')
-                    wrapText(context, ele1.value, 50*rate, 300*rate, 400*rate, 28*0.6*rate, 'Myriad')
-                }
-            }
-        }
-        function wrapText(context, text, x, y, maxWidth, fontSize, fontFace){
-          var firstY=y;
-          var words = text.split(' ');
-          var line = '';
-          var lineHeight=fontSize*1.2; // a good approx for 10-18px sizes
-
-          context.font=fontSize+"px "+fontFace;
-          context.textBaseline='top';
-
-          for(var n = 0; n < words.length; n++) {
-            var testLine = line + words[n] + ' ';
-            var metrics = context.measureText(testLine);
-            var testWidth = metrics.width;
-            if(testWidth > maxWidth) {
-              context.fillText(line, x, y);
-              if(n<words.length-1){
-                  line = words[n] + ' ';
-                  y += lineHeight;
-              }
-            }
-            else {
-              line = testLine;
-            }
-          }
-          context.fillText(line, x, y);
-        }
-        function candown (target, type) {
-          // (B1) GET CANVAS
-          let canvasD = document.getElementById(target);
-         
-           // (B2) CREATE LINK
-          let anchor = document.createElement("a");
-          anchor.download = "download." + type;
-          anchor.href = canvasD.toDataURL("image/" + type);
-         
-          // (B3) "FORCE DOWNLOAD"
-          anchor.click();
-          anchor.remove();
-         
-          // (B4) SAFER ALTERNATIVE - LET USER CLICK ON LINK
-          // anchor.innerHTML = "Download";
-          // document.body.appendChild(anchor);
-        }
-  </script>
-
-  <!-- IAMGE CREATION SCRIPT END -->
 
 </body>
 
