@@ -1472,17 +1472,23 @@
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="stylesheet" id="elementor-post-50298-css" href="./Original Site_files/main.css" media="all">
-    <link rel="preload" href="BentonSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./fonts/BentonSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <style type="text/css">
-        .your-style {
-            font-family: 'BentonSans';
-            font-weight: normal;
-            font-style: normal;
+        @font-face {
+          font-family: "BentonSans";
+          src: url("./fonts/BentonSans-Regular.woff2");
         }
+
+        @font-face {
+          font-family: "Knockout";
+          src: url("./fonts/Knockout-HTF27-JuniorBantamwt.woff2");
+        }
+
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preload" href="BentonSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 
 <body
@@ -1554,7 +1560,7 @@
                                             data-id="6b90570" data-element_type="widget"
                                             data-widget_type="heading.default">
                                             <div class="elementor-widget-container">
-                                                <p class="elementor-heading-title elementor-size-default">Lorem ipsum
+                                                <p  class="elementor-heading-title elementor-size-default">Lorem ipsum
                                                     dolor sit amet, consectetur adipiscing elit. Phasellus tempus leo.
                                                 </p>
                                             </div>
@@ -1566,10 +1572,10 @@
                                                 <div class="tool-wrapper">
                                                     <label for="header-input">Escribí tu encabezado</label>
                                                     <input type="text" id="header-input" name="encabezado" oninput="exportImage()" 
-                                                        maxlength="25">
+                                                        maxlength="26">
                                                     <label for="subheader-input">Ponele un copete</label>
                                                     <input type="text" id="subheader-input" name="bajada"
-                                                        maxlength="90" oninput ="exportImage()">
+                                                        maxlength="91" oninput ="exportImage()">
                                                     <label id="file-label" for="file-input" role="button">Subí tu
                                                         imagen</label>
                                                         <button id="file-input" type="button" data-toggle="modal" data-target="#myModal">Open Large Modal</button>
@@ -1719,7 +1725,7 @@
             imageObj1.src = "./photos/"+ imageNo + ".jpg"
             var context = canvas.getContext("2d");
             context.shadowColor = "rgba(0, 0, 0, 0)";
-            context.font = "32px Myriad";
+            context.font = "32px BentonSans";
             // context.color = "white";
             context.fillStyle = "white";
             imageObj1.onload = function() {
@@ -1734,8 +1740,8 @@
                     context.shadowOffsetX = 2;
                     context.shadowOffsetY = 2;
                     context.shadowBlur = 2;
-                    wrapText(context, ele.value.toUpperCase(), 50, 400, 400, 64*0.6, 'Myriad');
-                    wrapText(context, ele1.value, 50, 300, 400, 28*0.6, 'Myriad');
+                    wrapText(context, ele.value.toUpperCase(), 47, 412, 410, 68*0.6, 'BentonSans', 'bold ');
+                    wrapText(context, ele1.value, 49, 360, 410, 26*0.59, 'BentonSans', '');
                     // const event = new Date();
                     // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
                     // console.log(event.toLocaleDateString('es-ES', options));
@@ -1747,13 +1753,12 @@
                     let month = monthName[d.getMonth()];
                     let year = d.getFullYear();
                     console.log(day, date, month, year);
-                    context.font = "8px Myriad";
-                    context.fillStyle = "blue";
+                    context.font = "8px Knockout";
                     context.shadowOffsetX = 1;
                     context.shadowOffsetY = 1;
                     context.shadowBlur = 1;
                     context.fillText(day.toUpperCase(), 50, 160);
-                    context.fillText(date + ' DE ' + month.toUpperCase(), 30, 170);
+                    context.fillText(date + ' DE ' + month.toUpperCase(), 37, 170);
                     context.fillText('DE ' + year, 50, 180);
                     // context.fillText(ele.value.toUpperCase(), 50, 450);
                     // context.fillText(ele1.value, 10, 110);
@@ -1771,7 +1776,7 @@
             imageObj1.src = "./photos/"+ imageNo + ".jpg"
             var context = canvasB.getContext("2d");
             context.shadowColor = "rgba(0, 0, 0, 0)";
-            context.font = "32px Myriad";
+            context.font = "32px BentonSans";
             // context.color = "white";
             context.fillStyle = "white";
             imageObj1.onload = function() {
@@ -1786,8 +1791,8 @@
                     context.shadowOffsetX = 2*rate;
                     context.shadowOffsetY = 2*rate;
                     context.shadowBlur = 2*rate;
-                    wrapText(context, ele.value.toUpperCase(), 50*rate, 400*rate, 400*rate, 64*0.6*rate, 'Myriad')
-                    wrapText(context, ele1.value, 50*rate, 300*rate, 400*rate, 28*0.6*rate, 'Myriad')
+                    wrapText(context, ele.value.toUpperCase(), 47*rate, 412*rate, 410*rate, 68*0.6*rate, 'BentonSans', 'bold ')
+                    wrapText(context, ele1.value, 49*rate, 360*rate, 410*rate, 26*0.6*rate, 'BentonSans', '')
                     const weekday = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
                     const monthName = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
                     const d = new Date();
@@ -1796,24 +1801,24 @@
                     let month = monthName[d.getMonth()];
                     let year = d.getFullYear();
                     console.log(day, date, month, year);
-                    context.font = "21px Myriad";
-                    context.fillStyle = "blue";
+                    context.font = "21px Knockout";
                     context.shadowOffsetX = 1*rate;
                     context.shadowOffsetY = 1*rate;
                     context.shadowBlur = 1*rate;
                     context.fillText(day.toUpperCase(), 50*rate, 160*rate);
-                    context.fillText(date + ' DE ' + month.toUpperCase(), 30*rate, 170*rate);
+                    context.fillText(date + ' DE ' + month.toUpperCase(), 37*rate, 170*rate);
                     context.fillText('DE ' + year, 50*rate, 180*rate);
                 }
             }
         }
-        function wrapText(context, text, x, y, maxWidth, fontSize, fontFace){
+        function wrapText(context, text, x, y, maxWidth, fontSize, fontFace, fontWeight){
           var firstY=y;
+          text += ' ';
           var words = text.split(' ');
           var line = '';
-          var lineHeight=fontSize*1.2; // a good approx for 10-18px sizes
+          var lineHeight=fontSize*1.3; // a good approx for 10-18px sizes
 
-          context.font=fontSize+"px "+fontFace;
+          context.font=fontWeight + fontSize+"px "+fontFace;
           context.textBaseline='top';
 
           for(var n = 0; n < words.length; n++) {
@@ -1850,24 +1855,6 @@
           // anchor.innerHTML = "Download";
           // document.body.appendChild(anchor);
         }
-        // share
-        // Facebook Sharer Api:-  "https://www.facebook.com/sharer/sharer.php?u="; 
-
-        function shareOnFacebook(){
-            const navUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + 'https://github.com/knoldus/angular-facebook-twitter.git';
-            window.open(navUrl , '_blank');
-        }
-        const fb = document.getElementById('fb');
-        fb.addEventListener('click', shareonFacebook);
-        function shareOnTwitter() {
-          const navUrl =
-            'https://twitter.com/intent/tweet?text=' +
-            'https://github.com/knoldus/angular-facebook-twitter.git';
-          window.open(navUrl, '_blank');
-        }
-        const tweet = document.getElementById('twitter');
-        tweet.addEventListener('click', shareOnTwitter);
-
         // Another way
         // var twitterShare = document.querySelector('[data-js="twitter-share"]');
 
@@ -1889,23 +1876,6 @@
             return false;
         }
   </script>
-<style type="text/css">
-    
-.twitter-share, .facebook-share {
-  background: #fff;
-  color: rgb(87, 207, 244);
-  cursor: pointer;
-  display: inline-block;
-  padding: 1em 2em;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  
-  &:hover {
-    position: relative;
-    top: -1px;
-  }
-}
-</style>
   <!-- IAMGE CREATION SCRIPT END -->
 
 </body>
