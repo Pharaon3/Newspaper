@@ -1472,7 +1472,6 @@
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="stylesheet" id="elementor-post-50298-css" href="./Original Site_files/main.css" media="all">
-    <link rel="preload" href="./fonts/BentonSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <style type="text/css">
         @font-face {
           font-family: "BentonSans";
@@ -1482,6 +1481,11 @@
         @font-face {
           font-family: "Knockout";
           src: url("./fonts/Knockout-HTF27-JuniorBantamwt.woff2");
+        }
+
+        @font-face {
+          font-family: "Formata";
+          src: url("./fonts/Formata-Medium.woff2");
         }
 
     </style>
@@ -1725,7 +1729,7 @@
             imageObj1.src = "./photos/"+ imageNo + ".jpg"
             var context = canvas.getContext("2d");
             context.shadowColor = "rgba(0, 0, 0, 0)";
-            context.font = "32px BentonSans";
+            context.font = "32px Formata";
             // context.color = "white";
             context.fillStyle = "white";
             imageObj1.onload = function() {
@@ -1737,11 +1741,11 @@
                     var ele = document.getElementById("header-input");
                     var ele1 = document.getElementById("subheader-input");
                     context.shadowColor = "rgba(0, 0, 0, 0.9)";
-                    context.shadowOffsetX = 2;
-                    context.shadowOffsetY = 2;
-                    context.shadowBlur = 2;
-                    wrapText(context, ele.value.toUpperCase(), 47, 412, 410, 68*0.6, 'BentonSans', 'bold ');
-                    wrapText(context, ele1.value, 49, 360, 410, 26*0.59, 'BentonSans', '');
+                    context.shadowOffsetX = 1.5;
+                    context.shadowOffsetY = 1.5;
+                    context.shadowBlur = 1.5;
+                    wrapText(context, ele.value.toUpperCase(), 47, 412, 410, 68*0.6, 'Formata', '');
+                    wrapText(context, ele1.value, 49, 360, 410, 26*0.59, 'Formata', '');
                     // const event = new Date();
                     // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
                     // console.log(event.toLocaleDateString('es-ES', options));
@@ -1753,13 +1757,13 @@
                     let month = monthName[d.getMonth()];
                     let year = d.getFullYear();
                     console.log(day, date, month, year);
-                    context.font = "8px Knockout";
-                    context.shadowOffsetX = 1;
-                    context.shadowOffsetY = 1;
-                    context.shadowBlur = 1;
-                    context.fillText(day.toUpperCase(), 50, 160);
-                    context.fillText(date + ' DE ' + month.toUpperCase(), 37, 170);
-                    context.fillText('DE ' + year, 50, 180);
+                    context.font = "10px Knockout";
+                    context.shadowOffsetX = 0.2;
+                    context.shadowOffsetY = 0.2;
+                    context.shadowBlur = 0.2;
+                    context.fillText(day.toUpperCase(), 62, 160);
+                    context.fillText(date + ' DE ' + month.toUpperCase(), 40, 170);
+                    context.fillText('DE ' + year, 62, 180);
                     // context.fillText(ele.value.toUpperCase(), 50, 450);
                     // context.fillText(ele1.value, 10, 110);
                     var img = document.getElementById("exportedImage");
@@ -1776,7 +1780,7 @@
             imageObj1.src = "./photos/"+ imageNo + ".jpg"
             var context = canvasB.getContext("2d");
             context.shadowColor = "rgba(0, 0, 0, 0)";
-            context.font = "32px BentonSans";
+            context.font = "32px Formata";
             // context.color = "white";
             context.fillStyle = "white";
             imageObj1.onload = function() {
@@ -1788,11 +1792,11 @@
                     var ele = document.getElementById("header-input");
                     var ele1 = document.getElementById("subheader-input");
                     context.shadowColor = "rgba(0, 0, 0, 0.9)";
-                    context.shadowOffsetX = 2*rate;
-                    context.shadowOffsetY = 2*rate;
-                    context.shadowBlur = 2*rate;
-                    wrapText(context, ele.value.toUpperCase(), 47*rate, 412*rate, 410*rate, 68*0.6*rate, 'BentonSans', 'bold ')
-                    wrapText(context, ele1.value, 49*rate, 360*rate, 410*rate, 26*0.6*rate, 'BentonSans', '')
+                    context.shadowOffsetX = 1.5*rate;
+                    context.shadowOffsetY = 1.5*rate;
+                    context.shadowBlur = 1.5*rate;
+                    wrapText(context, ele.value.toUpperCase(), 47*rate, 412*rate, 410*rate, 68*0.6*rate, 'Formata', '')
+                    wrapText(context, ele1.value, 49*rate, 360*rate, 410*rate, 26*0.6*rate, 'Formata', '')
                     const weekday = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
                     const monthName = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
                     const d = new Date();
@@ -1801,13 +1805,13 @@
                     let month = monthName[d.getMonth()];
                     let year = d.getFullYear();
                     console.log(day, date, month, year);
-                    context.font = "21px Knockout";
-                    context.shadowOffsetX = 1*rate;
-                    context.shadowOffsetY = 1*rate;
-                    context.shadowBlur = 1*rate;
-                    context.fillText(day.toUpperCase(), 50*rate, 160*rate);
-                    context.fillText(date + ' DE ' + month.toUpperCase(), 37*rate, 170*rate);
-                    context.fillText('DE ' + year, 50*rate, 180*rate);
+                    context.font = "27px Knockout";
+                    context.shadowOffsetX = 0.2*rate;
+                    context.shadowOffsetY = 0.2*rate;
+                    context.shadowBlur = 0.2*rate;
+                    context.fillText(day.toUpperCase(), 62*rate, 160*rate);
+                    context.fillText(date + ' DE ' + month.toUpperCase(), 40*rate, 170*rate);
+                    context.fillText('DE ' + year, 62*rate, 180*rate);
                 }
             }
         }
