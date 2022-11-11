@@ -1098,8 +1098,8 @@
             var canvas = document.getElementById('canvas1');
             var rate1 =1;
             if(w < 1024 && w > 768) rate1 = ((w - 24) / 2) / 500;
-            // canvas.width = 500*rate1;
-            // canvas.height = 609*rate1;
+            canvas.width = 500*rate1;
+            canvas.height = 609*rate1;
             var imageObj1 = new Image();
             imageObj1.src = "./photos/"+ imageNo + ".jpg"
             var context = canvas.getContext("2d");
@@ -1113,9 +1113,6 @@
                 imageObj2.src = "./frame1withAD.png"
                 imageObj2.onload = function() {
                     context.drawImage(imageObj2, 0, 0, 500*rate1, 609*rate1);
-                    context.beginPath();
-                    context.rect(0, 0, 500*rate1, 609*rate1);
-                    context.stroke();
                     var ele = document.getElementById("header-input");
                     var ele1 = document.getElementById("subheader-input");
                     context.shadowColor = "rgba(0, 0, 0, 0.9)";
@@ -1147,7 +1144,7 @@
                 }
             }
             exportImageB();
-            exportImage2();
+            // exportImage2();
         }
         function exportImage2() {
             fetch('./fonts//Knockout-HTF27-JuniorBantamwt.woff2')
@@ -1381,14 +1378,14 @@
             }, {scope: 'manage_pages,publish_pages'})
         }
         document.addEventListener('DOMContentLoaded', function() {
-          exportImage();
-          exportImage();
+           // exportImage();
+           // exportImage();
         }, false);
   </script>
   <!-- IAMGE CREATION SCRIPT END -->
 </head>
 
-<body >
+<body onload="exportImage()">
 
     <div data-elementor-type="wp-page" data-elementor-id="50298" class="elementor elementor-50298">
         <div class="elementor-inner">
@@ -1500,7 +1497,7 @@
                                 data-id="269df5c" data-element_type="column">
                                 <div class="elementor-column-wrap elementor-element-populated myClass1">
                                     <div class="elementor-widget-wrap photoFrame">
-                                          <canvas id="canvas1" width="500" height="609" style="padding: auto;"></canvas>
+                                          <canvas id="canvas1" width="500" height="609" style="border: solid 1px gray; padding: auto;"></canvas>
                                           <canvas id="canvasB" width="1362" height="1659" style="position: absolute; top: -10000px; left: 10000px;"></canvas>
                                         <!-- IMAGE CREATION END -->
                                     </div>
