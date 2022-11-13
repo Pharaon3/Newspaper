@@ -56,9 +56,14 @@ label[for="subheader-input"] {
     border: 1px dashed grey;
 }
 
+label#file-label {
+    background-color: #3DC0E8;
+}
+
+
 #download-button,
 #file-label {
-    background-color: #09bc8a;
+    background-color: #3DC0E8;
     border: none;
     color: white;
     cursor: pointer;

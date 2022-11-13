@@ -1,0 +1,86 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+#cf7cstmzr_frontend {
+    position: fixed;
+    bottom: 0;
+    background-color: #fff;
+    padding: 10px;
+    right: -303px;
+    border: 1px solid #1e73be;
+    width: 100%;
+    max-width: 300px;
+    z-index: 6000;
+    transition: all 0.6s;
+}
+#cf7cstmzr_frontend.active {
+    right: 0;
+}
+
+#cf7cstmzr_frontend_togler {
+    line-height: 20px;
+    position: absolute;
+    bottom: 20px;
+    width: 110px;
+    left: 0;
+    transform: translateX(-115px);
+    border: 1px solid #1e73be;
+    padding: 5px;
+    background-color: rgba(255,255,255,0.6);
+    cursor: pointer;
+    font-size: 14px;
+}
+#cf7cstmzr_form_frontend_togler, .cf7cstmzr_form_frontend_link {
+    display: inline-block;
+    line-height: 20px;
+    border: 1px solid #1e73be;
+    padding: 5px;
+    background-color: rgba(255,255,255,1);
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-decoration: none!important;
+    color: #333;
+}
+#cf7cstmzr_form_frontend_togler:hover,
+.cf7cstmzr_form_frontend_link:hover,
+#cf7cstmzr_frontend_togler:hover {
+    color: #1e73be;
+    background-color: rgba(255,255,255,0.9);
+}
+
+.cf7cstmzr-button {
+    outline: transparent !important;
+    display: inline-block;
+    width: 100%;
+    background-color: #007bff !important;
+    padding: 10px 15px !important;
+    color: #fff !important;
+    line-height: 1.2;
+    border: none!important;
+}
+.cf7cstmzr-button:hover {
+    background-color: #0067cd !important;
+    color: #fff !important;
+    border: none!important;
+}
+
+.cf7cstmzr-link {
+    outline: transparent !important;
+    font-weight: 400!important;
+    display: inline-block;
+    width: 100%;
+    background-color: transparent !important;
+    padding: 5px 5px 0 5px !important;
+    color: #999 !important;
+    line-height: 1.2;
+    font-size: 13px;
+    border: none!important;
+}
+.cf7cstmzr-link:hover {
+    background-color: transparent !important;
+    color: #007bff !important;
+    border: none!important;
+}
